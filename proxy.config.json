@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://indikko.herokuapp.com",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
