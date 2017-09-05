@@ -18,8 +18,8 @@ export class HomeComponent implements OnInit {
     
 
     this.profissionalService.getProfissionais()
-      .then((profissionais: Profissional[]) => {
-        console.log(profissionais)
+      .then((profissionais: Profissional[] ) => {
+        //console.log(profissionais)
         this.profissionais = profissionais
       })
       .catch((param: any) => {
