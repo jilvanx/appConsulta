@@ -34,7 +34,7 @@ export class ProfissionalService {
         
         function callBackFunction(todosResultados)
         {
-            console.log(todosResultados);
+            console.log(todosResultados); 
         }
 
         function getData(url, dados, cb) {
@@ -60,12 +60,11 @@ export class ProfissionalService {
         }
 
         
-        //return getData(urlBase, [], callBackFunction)
         
-        return this.http.get(urlBase)
-           .toPromise()
-           .then((resposta: any) => resposta.json().results as Profissional[])
-           //.then((resposta: any) => resposta.json())
+        // return this.http.get(urlBase)
+        //    .toPromise()
+        //    .then((resposta: any) => resposta.json().results as Profissional[])
+        //    //.then((resposta: any) => resposta.json())
         
     }  
 
