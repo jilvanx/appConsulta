@@ -4,9 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Development server
 
-git clone https://github.com/jilvanx/appConsulta.git
-Navigate in to the directory
-npm install
-npm start
-Go to http://localhost:4200/
-
+- git clone `https://github.com/jilvanx/appConsulta.git`
+- Navigate in to the directory
+- `npm install`
+- `npm start`
+- Go to end http://localhost:4200/
