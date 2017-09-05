@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router'
 import { Profissional } from '../shared/profissional.model'
 import { ProfissionalService } from '../profissional.service'
@@ -12,7 +13,7 @@ import { ProfissionalService } from '../profissional.service'
 export class ProfissionalComponent implements OnInit {
 
   public profissional: Profissional
-
+  
   constructor(
     private route: ActivatedRoute,
     private profissionalService: ProfissionalService
@@ -24,7 +25,7 @@ export class ProfissionalComponent implements OnInit {
     this.profissionalService.getProfissionalID(this.route.snapshot.params['id'])
       .then((profissional: Profissional ) => {
         this.profissional = profissional
-        console.log(profissional)
+        //console.log(this.profissional)
       })
       .catch((param: any) => {
         console.log(param)

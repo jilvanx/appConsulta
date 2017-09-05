@@ -1,6 +1,7 @@
-import { Http, Response, Headers, RequestOptions } from '@angular/http'
+import { Http } from '@angular/http'
 import { Injectable } from '@angular/core'
 import { Profissional } from './shared/profissional.model'
+
 import 'rxjs/add/operator/toPromise'
 
 @Injectable()
@@ -48,10 +49,10 @@ export class ProfissionalService {
 
         return new Promise<Profissional[]>(function (resolve, reject) {
             getData(urlBase, [], (resposta: any) => {
-                console.log(resposta as Profissional[])
-                resolve(resposta as Profissional[]);
-            });
-        });
+                //console.log(resposta as Profissional[])
+                resolve(resposta as Profissional[])
+            })
+        })
 
 
     }
@@ -60,7 +61,6 @@ export class ProfissionalService {
         return this.http.get(`https://cors-anywhere.herokuapp.com/indikko.herokuapp.com/api/v1/workers/${id}/?format=json`)
             .toPromise()
             .then((resposta: any) => {
-                //console.log(resposta.json())
                 return resposta.json() as Profissional
             })
 
