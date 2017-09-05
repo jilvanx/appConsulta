@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="oferta">
+
+
+
+    <div class="row" style="margin-top: 70px">
+      <div class="col">
+        <h4><strong>Profissional:</strong> {{ profissional.fullname }} </h4>
+      </div>
+    </div>
+
+    
+    <div class="row">
+
+      <div class="col-md-6">
+        <div class="img_capa">
+          <img class="card-img-top img-fluid" [src]="profissional.photo_url">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col text-center">
+            <p><strong>Email:</strong> {{profissional.email}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center">
+            <p><strong>Telefone:</strong> {{profissional.full_phone}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+              <h1><strong>Avaliação:</strong>{{ profissional.rate }}</h1>
+            </div>
+          </div>
+
+      </div>
+
+  </div>
+</div>

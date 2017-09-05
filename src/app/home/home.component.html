@@ -10,11 +10,11 @@
   
     <div class="col-sm-4" *ngFor="let profissional of profissionais">
       <div class="card">
-        <img class="card-img-top" [src]="profissional.photo_url">
+        <img class="card-img-top img-fluid" [src]="profissional.photo_url">
         <div class="card-block">
           <h4 class="card-title">{{ profissional.fullname }}</h4>
           <p class="card-text">{{ profissional.email }}</p>
-          <a href="#" class="btn btn-outline-primary">Ver profissional</a>
+          <a [routerLink]="['/profissional', profissional.id]" class="btn btn-outline-primary">Ver profissional</a>
         </div>
       </div>
     </div>

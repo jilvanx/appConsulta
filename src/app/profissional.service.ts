@@ -22,51 +22,49 @@ export class ProfissionalService {
     //     return this.http.get('https://cors-anywhere.herokuapp.com/indikko.herokuapp.com/api/v1/workers/')
     //         .toPromise()
     //         .then((resposta: any) => resposta.json().results as Profissional[])
-
     // }
 
 
-    public getProfissionais(): Promise<any[]> {
+    public getProfissionais(): Promise <Profissional[] > {
         
         const urlBase = 'https://cors-anywhere.herokuapp.com/indikko.herokuapp.com/api/v1/workers/';
 
-        getData(urlBase, [], callBackFunction);
-        
-        function callBackFunction(todosResultados)
-        {
-            console.log(todosResultados); 
-        }
-
         function getData(url, dados, cb) {
-            
-            //getData(https://cors-anywhere.herokuapp.com/ + data.next.replace("http://",""), dados, cb);
 
             fetch(url)
                 .then(data => data.json())
-                .then(data=>
-                    {
-                        dados = dados.concat(data.results);
-                        
-                        if (data.next)
-                        {
-                            //getData(data.next, dados, cb);
-                            getData('https://cors-anywhere.herokuapp.com/' + data.next.replace("http://",""), dados, cb);
-                        }else
-                        {
-                            cb(dados);
-                        }
+                .then(data=> {
+                    dados = dados.concat(data.results);
+                    if (data.next) {
+                        //getData(data.next, dados, cb);
+                        getData('https://cors-anywhere.herokuapp.com/' + data.next.replace("http://", ""), dados, cb);
+                        console.log('https://cors-anywhere.herokuapp.com/' + data.next.replace("http://", ""))
                     }
-                );      
+                    else {
+                        cb(dados);
+                    }
+                });
         }
 
-        
-        
-        // return this.http.get(urlBase)
-        //    .toPromise()
-        //    .then((resposta: any) => resposta.json().results as Profissional[])
-        //    //.then((resposta: any) => resposta.json())
-        
-    }  
+        return new Promise<Profissional[]>(function (resolve, reject) {
+            getData(urlBase, [], (resposta: any) => {
+                console.log(resposta as Profissional[])
+                resolve(resposta as Profissional[]);
+            });
+        });
 
+
+    }
+
+    public getProfissionalID(id: number): Promise<Profissional> {
+        return this.http.get(`https://cors-anywhere.herokuapp.com/indikko.herokuapp.com/api/v1/workers/${id}/?format=json`)
+            .toPromise()
+            .then((resposta: any) => {
+                //console.log(resposta.json())
+                return resposta.json() as Profissional
+            })
+
+    }    
+    
 
 }
