@@ -1,9 +1,9 @@
 <div class="container">
   <div class="oferta" *ngIf="profissional !== undefined">
-
-    <div class="row" style="margin-top: 70px">
+    
+    <div class="row" style="margin-top: 70px; margin-bottom: 15px">
       <div class="col">
-        <h4><strong>Profissional:</strong> {{ profissional.fullname }} </h4>
+        <h4><strong>Profissional:</strong> {{profissional.fullname}} </h4>
       </div>
     </div>
 
@@ -11,30 +11,47 @@
     <div class="row">
 
       <div class="col-md-6">
-        <div class="img_capa">
+        <div class="img_capa" *ngIf="profissional.photo_url != ''">
           <img class="card-img-top img-fluid" [src]="profissional.photo_url">
+        </div>
+
+        <div class="img_capa" *ngIf="profissional.photo_url == ''">
+          <img class="card-img-top img-fluid" src="http://via.placeholder.com/330x240">
         </div>
       </div>
 
       <div class="col-md-6">
 
         <div class="row">
-          <div class="col text-center">
+          <div class="col text-left">
             <p><strong>Email:</strong> {{profissional.email}}</p>
           </div>
         </div>
 
         <div class="row">
-          <div class="col text-center">
+          <div class="col text-left">
             <p><strong>Telefone:</strong> {{profissional.full_phone}}</p>
           </div>
         </div>
 
         <div class="row">
-            <div class="col text-center">
-              <h1><strong>Avaliação:</strong>{{ profissional.rate }}</h1>
-            </div>
+          <div class="col text-left">
+            <p><strong>Serviços:</strong></p>
           </div>
+        </div>
+        <div class="row">
+          <ul>
+            <li *ngFor="let skill of profissional.skills">
+              {{ skill.description }}
+            </li>
+          </ul>                     
+        </div>
+  
+        <div class="row">
+          <div class="col text-center">
+            <h1><strong>Avaliação: </strong>{{ profissional.rate }}</h1>
+          </div>
+        </div>
 
       </div>
 

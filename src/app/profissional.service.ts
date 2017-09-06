@@ -39,7 +39,7 @@ export class ProfissionalService {
                     if (data.next) {
                         //getData(data.next, dados, cb);
                         getData('https://cors-anywhere.herokuapp.com/' + data.next.replace("http://", ""), dados, cb);
-                        console.log('https://cors-anywhere.herokuapp.com/' + data.next.replace("http://", ""))
+                        //console.log('https://cors-anywhere.herokuapp.com/' + data.next.replace("http://", ""))
                     }
                     else {
                         cb(dados);
